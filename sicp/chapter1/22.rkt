@@ -38,7 +38,7 @@
 	      [else (timed-prime-test start)
   	      	    (search-for-primes (+ start 2) end)]))
 
-(search-for-primes 1000 1030)
-(search-for-primes 10000 10050)
-(search-for-primes 100000 100050)
-(search-for-primes 1000000 1000100)
+(search-for-primes 1000000000 1000000030)
+(search-for-primes 10000000000 10000000070)
+(search-for-primes 100000000000 100000000070)
+(search-for-primes 1000000000000 1000000000100)
