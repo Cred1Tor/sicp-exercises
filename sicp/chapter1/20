@@ -1,0 +1,27 @@
+(define (gcd a b)
+  (if (= b 0)
+    a
+    (gcd b (remainder a b))))
+
+; normal order
+(gcd 206 40)
+(gcd 40 (remainder 206 40)) ; remainder called once
+(gcd (remainder 206 40) (remainder 40 (remainder 206 40))) ; remainder called 2 times
+(gcd (remainder 40 (remainder 206 40)) (remainder (remainder 206 40) (remainder 40 (remainder 206 40)))) ; remainder called 4 times
+(gcd (remainder (remainder 206 40) (remainder 40 (remainder 206 40))) (remainder (remainder 40 (remainder 206 40)) (remainder (remainder 206 40) (remainder 40 (remainder 206 40))))) ; b = 0, remainder called 7 times 
+(remainder (remainder 206 40) (remainder 40 (remainder 206 40))) ; 2 times
+(remainder 6 (remainder 40 6)) ; 1 time
+(remainder 6 4) ; 1 time
+2 ; remainder called total 18 times
+
+; applicative order
+(gcd 206 40)
+(gcd 40 (remainder 206 40))
+(gcd 40 6)
+(gcd 6 (remainder 40 6))
+(gcd 6 4)
+(gcd 4 (remainder 6 4))
+(gcd 4 2)
+(gcd 2 (remainder 4 2))
+(gcd 2 0)
+2 ; remainder called total 4 times
