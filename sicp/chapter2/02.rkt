@@ -1,5 +1,7 @@
 #lang sicp
 
+(#%provide (all-defined))
+
 (define (make-point x y) (cons x y))
 
 (define (x-point point) (car point))
