@@ -2,6 +2,7 @@
 
 (#%require "07.rkt")
 (#%require rackunit)
+(#%provide sub-interval)
 
 (define (sub-interval a b)
   (make-interval (- (lower-bound a)
