@@ -22,5 +22,5 @@
 
 (define test (make-center-percent 150 4))
 
-(check-equal? (percent test) 4)
-(check-equal? (center test) 150)
+(check-equal? (percent test) 4.0)
+(check-equal? (center test) 150.0)
