@@ -23,5 +23,5 @@
 (define int2 (make-interval 1 6))
 (define int3 (make-interval -2 3))
 
-(div-interval int1 int2)
-(div-interval int1 int3)
+; (div-interval int1 int2)
+; (div-interval int1 int3)
