@@ -2,6 +2,7 @@
 
 (#%require "07.rkt")
 (#%require rackunit)
+(#%provide make-center-width center width make-center-percent percent)
 
 (define (make-center-width c w)
   (make-interval (- c w) (+ c w)))
