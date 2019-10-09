@@ -1,6 +1,7 @@
 #lang sicp
 
 (#%require "07.rkt")
+(#%provide mul-interval)
 
 (define (mul-interval x y)
   (let ((x-low (lower-bound x))
