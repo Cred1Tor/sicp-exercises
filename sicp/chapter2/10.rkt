@@ -1,6 +1,7 @@
 #lang sicp
 
 (#%require "07.rkt")
+(#%provide div-interval mul-interval)
 
 (define (div-interval x y)
   (if (and (>= (upper-bound y) 0)
