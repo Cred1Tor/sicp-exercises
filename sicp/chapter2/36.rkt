@@ -2,6 +2,7 @@
 
 (#%require "33.rkt")
 (#%require rackunit)
+(#%provide accumulate-n)
 
 (define (accumulate-n op init seqs)
   (if (null? (car seqs))
