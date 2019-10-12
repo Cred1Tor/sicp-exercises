@@ -1,5 +1,7 @@
 #lang sicp
 
+(#%provide fold-right fold-left)
+
 (define (fold-right op initial sequence)
   (if (null? sequence)
     initial
