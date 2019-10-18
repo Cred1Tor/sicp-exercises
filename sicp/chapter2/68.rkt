@@ -1,6 +1,7 @@
 #lang sicp
 
 (#%require "67.rkt")
+(#%provide encode)
 
 (define (encode message tree)
   (if (null? message)
