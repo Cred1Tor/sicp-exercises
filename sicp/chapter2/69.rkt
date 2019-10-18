@@ -1,6 +1,7 @@
 #lang sicp 
 
 (#%require "67.rkt")
+(#%provide generate-huffman-tree)
 
 (define (generate-huffman-tree pairs)
   (successive-merge (make-leaf-set pairs)))
