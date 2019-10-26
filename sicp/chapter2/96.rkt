@@ -1,0 +1,36 @@
+; poly-package
+(define (gcd-terms a b)
+  (if (empty-termlist? b)
+    (let ((a-coeffs (map cadr a)))
+      (let ((g (apply gcd a-coeffs)))
+	(map (lambda (x)
+	       (make-term (order x)
+			  (/ (coeff x) g)))
+	     a)))
+    (gcd-terms b (pseudoremainder-terms a b))))
+
+(define (remainder-terms p1 p2)
+  (cadr (div-terms p1 p2)))
+
+(define (gcd-polys p1 p2)
+  (let ((v1 (variable p1))
+	(v2 (variable p2))
+	(l1 (term-list p1))
+	(l2 (term-list p2)))
+    (if (same-variable? v1 v2)
+      (make-poly v1 (gcd-terms l1 l2))
+      (error "different variables -- GCD-POLYS" (list v1 v2)))))
+
+(define (pseudoremainder-terms l1 l2)
+  (let ((c (coeff (first-term l2)))
+	(o1 (order (first-term l1)))
+	(o2 (order (first-term l2))))
+    (let ((int-factor (expt c (- (+ 1 o1) 02))))
+      (remainder-terms (mul-terms-by-all-terms (make-term 0 int-factor)
+					       l1)
+		       l2))))
+
+(define (tag p) (attach-tag 'polynomial p))
+
+(put 'greatest-common-divisor '(polynomial polynomial)
+     (lambda (p1 p2) (tag (gcd-polys p1 p2))))
